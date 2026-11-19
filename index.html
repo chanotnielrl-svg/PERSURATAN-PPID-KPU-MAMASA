@@ -76,8 +76,8 @@
         <!-- Brand / Logo -->
         <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('dashboard')">
           <div class="bg-white p-1.5 rounded-xl shadow-md flex-shrink-0">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/KPU_Logo.svg"
-                 alt="Logo KPU" class="kpu-logo-img w-9 h-9 sm:w-10 sm:h-10 object-contain" />
+            <img src="1627539868logo-kpu.png"
+                 alt="Logo KPU" class="w-9 h-9 sm:w-10 sm:h-10 object-contain" />
           </div>
           <div>
             <h1 class="text-base sm:text-xl font-extrabold tracking-tight leading-tight">PERSURATAN PPID</h1>
@@ -320,8 +320,8 @@
           <!-- HALAMAN 1: FORMULIR PERMOHONAN INFORMASI PUBLIK (SESUAI GAMBAR 3) -->
           <div class="print-container bg-white p-8 sm:p-10 rounded-2xl border border-slate-300 shadow-sm font-doc text-black text-[11.5pt] leading-snug">
             <div class="text-center mb-3">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/KPU_Logo.svg"
-                   alt="Logo KPU" class="kpu-logo-img w-16 h-16 mx-auto mb-2 object-contain" />
+              <img src="1627539868logo-kpu.png"
+                   alt="Logo KPU" class="w-16 h-16 mx-auto mb-2 object-contain" />
               <div class="font-bold text-[12pt] tracking-wide">FORMULIR PERMOHONAN INFORMASI PUBLIK</div>
               <div class="font-bold text-[12pt] tracking-wide">KPU KABUPATEN MAMASA</div>
               <hr class="border-t-2 border-black mt-2 mb-3" />
@@ -422,8 +422,8 @@
           <!-- HALAMAN 2: TANDA TERIMA PERMOHONAN INFORMASI PUBLIK (OTOMATIS TERHUBUNG - SESUAI GAMBAR 2) -->
           <div class="print-container page-break bg-white p-8 sm:p-12 rounded-2xl border border-slate-300 shadow-sm font-doc text-black text-[12pt] leading-relaxed">
             <div class="text-center mb-4">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/KPU_Logo.svg"
-                   alt="Logo KPU" class="kpu-logo-img w-16 h-16 mx-auto mb-2 object-contain" />
+              <img src="1627539868logo-kpu.png"
+                   alt="Logo KPU" class="w-16 h-16 mx-auto mb-2 object-contain" />
               <div class="font-bold text-[12pt]">FORMULIR PERMOHONAN INFORMASI PUBLIK</div>
               <div class="font-bold text-[12pt]">KPU KABUPATEN MAMASA</div>
               <hr class="border-t-2 border-black mt-2 mb-6" />
@@ -586,8 +586,8 @@
           <div class="print-container bg-white p-8 sm:p-10 rounded-2xl border border-slate-300 shadow-sm font-doc text-black text-[11pt] leading-snug">
             <!-- KOP SURAT RESMI -->
             <div class="flex items-center gap-4 border-b-4 border-double border-black pb-3 mb-4">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/KPU_Logo.svg"
-                   alt="Logo KPU" class="kpu-logo-img w-16 h-16 object-contain flex-shrink-0" />
+              <img src="1627539868logo-kpu.png"
+                   alt="Logo KPU" class="w-16 h-16 object-contain flex-shrink-0" />
               <div class="text-center flex-1">
                 <div class="font-bold text-[13pt] leading-tight">PPID KOMISI PEMILIHAN UMUM</div>
                 <div class="font-bold text-[13pt] leading-tight">KABUPATEN MAMASA</div>
@@ -738,8 +738,8 @@
         <!-- Kop Buku Register -->
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4 pb-3 border-b border-slate-300">
           <div class="flex items-center gap-3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/KPU_Logo.svg"
-                 alt="Logo KPU" class="kpu-logo-img w-11 h-11 object-contain" />
+            <img src="1627539868logo-kpu.png"
+                 alt="Logo KPU" class="w-11 h-11 object-contain" />
             <div>
               <div class="font-bold text-sm sm:text-base text-slate-900">Buku Register Permintaan Informasi Publik Tahun <span id="reg-tahun-judul">2026</span></div>
               <div class="font-bold text-xs sm:text-sm text-slate-800">KPU Kabupaten Mamasa</div>
@@ -1045,7 +1045,6 @@
 
     // INISIALISASI SAAT HALAMAN DIMUAT
     window.addEventListener('DOMContentLoaded', () => {
-      initOfficialKpuLogos();
       lucide.createIcons();
       updateAdminUI();
       populateSettingsInputs();
@@ -1057,43 +1056,6 @@
         syncFromBackend();
       }
     });
-
-    // LOGO RESMI KPU EMBEDDED (ANTI GAGAL LOAD / OFFLINE READY)
-    function initOfficialKpuLogos() {
-      const kpuSvgDataUri = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 250">
-          <path d="M110 6 C158 6 196 22 208 42 C218 82 218 168 208 208 C196 228 158 244 110 244 C62 244 24 228 12 208 C2 168 2 82 12 42 C24 22 62 6 110 6 Z" fill="#111111"/>
-          <path d="M110 38 C144 38 172 48 180 62 L180 125 L40 125 L40 62 C48 48 76 38 110 38 Z" fill="#d91e18"/>
-          <path d="M40 125 L180 125 L180 188 C172 202 144 212 110 212 C76 212 48 202 40 188 Z" fill="#ffffff"/>
-          <circle cx="23" cy="112" r="7.5" fill="#ffffff"/>
-          <circle cx="197" cy="112" r="7.5" fill="#ffffff"/>
-          <text x="110" y="30" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-weight="900" font-size="22" letter-spacing="2">KOMISI</text>
-          <text x="110" y="233" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-weight="900" font-size="18.5" letter-spacing="1.2">PEMILIHAN UMUM</text>
-          <g transform="translate(110,126)">
-            <path d="M-54,-36 C-42,-16 -34,8 -28,32 L-16,28 C-20,6 -26,-16 -38,-38 Z" fill="#eab308" stroke="#854d0e" stroke-width="1.5"/>
-            <path d="M54,-36 C42,-16 34,8 28,32 L16,28 C20,6 26,-16 38,-38 Z" fill="#eab308" stroke="#854d0e" stroke-width="1.5"/>
-            <path d="M-46,-22 C-36,-4 -28,16 -22,38 L-10,34 C-14,14 -20,-4 -30,-24 Z" fill="#facc15" stroke="#854d0e" stroke-width="1.2"/>
-            <path d="M46,-22 C36,-4 28,16 22,38 L10,34 C14,14 20,-4 30,-24 Z" fill="#facc15" stroke="#854d0e" stroke-width="1.2"/>
-            <path d="M-12,-42 C-6,-50 4,-50 10,-42 L6,-26 L-8,-26 Z" fill="#facc15" stroke="#854d0e" stroke-width="1.5"/>
-            <polygon points="-24,-22 24,-22 20,16 0,34 -20,16" fill="#ffffff" stroke="#111111" stroke-width="2"/>
-            <polygon points="-22,-20 0,-20 0,2 -21,2" fill="#d91e18"/>
-            <polygon points="0,2 21,2 18,15 0,31" fill="#d91e18"/>
-            <line x1="0" y1="-20" x2="0" y2="31" stroke="#111111" stroke-width="1.8"/>
-            <line x1="-21" y1="2" x2="21" y2="2" stroke="#111111" stroke-width="1.8"/>
-            <polygon points="-8,-8 8,-8 6,8 0,13 -6,8" fill="#111111"/>
-            <polygon points="0,-5 2,0 7,0 3,3 4,8 0,5 -4,8 -3,3 -7,0 -2,0" fill="#facc15"/>
-            <path d="M-36,42 Q0,54 36,42 L32,50 Q0,61 -32,50 Z" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
-            <text x="0" y="51" text-anchor="middle" fill="#111111" font-family="Arial, sans-serif" font-weight="bold" font-size="5.2">BHINNEKA TUNGGAL IKA</text>
-          </g>
-        </svg>
-      `);
-      document.querySelectorAll('.kpu-logo-img').forEach(img => {
-        img.onerror = function() { this.src = kpuSvgDataUri; };
-        if (!img.complete || img.naturalWidth === 0) {
-          img.src = kpuSvgDataUri;
-        }
-      });
-    }
 
     // =========================================================================
     // NAVIGASI TAB & NOTIFIKASI
