@@ -11,23 +11,17 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f8fafc;
-      color: #0f172a;
-    }
-    .font-doc {
-      font-family: 'Tinos', 'Times New Roman', Times, serif;
-    }
-
-    /* PENGATURAN CETAK / PDF PRESISI */
+    /* PENGATURAN CETAK / PDF PRESISI (MENGHILANGKAN HEADER & FOOTER BROWSER) */
     @media print {
       @page {
-        margin: 12mm;
+        size: auto;
+        margin: 0mm !important;
       }
-      body {
+      html, body {
         background: #ffffff !important;
         color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -37,10 +31,15 @@
       .print-only {
         display: block !important;
       }
+      main {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
       .print-container {
         box-shadow: none !important;
         border: none !important;
-        padding: 0 !important;
+        padding: 14mm 16mm !important;
         margin: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -51,6 +50,7 @@
       /* Ukuran khusus untuk cetak Buku Register Landscape */
       .print-landscape {
         width: 100% !important;
+        padding: 10mm 12mm !important;
         font-size: 8.5pt !important;
       }
     }
@@ -76,9 +76,8 @@
         <!-- Brand / Logo -->
         <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('dashboard')">
           <div class="bg-white p-1.5 rounded-xl shadow-md flex-shrink-0">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/KPU_Logo.svg/200px-KPU_Logo.svg.png"
-                 onerror="this.src='https://placehold.co/48x48/991b1b/ffffff?text=KPU'"
-                 alt="Logo KPU" class="w-9 h-9 sm:w-10 sm:h-10 object-contain" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/KPU_Logo.svg"
+                 alt="Logo KPU" class="kpu-logo-img w-9 h-9 sm:w-10 sm:h-10 object-contain" />
           </div>
           <div>
             <h1 class="text-base sm:text-xl font-extrabold tracking-tight leading-tight">PERSURATAN PPID</h1>
@@ -321,9 +320,8 @@
           <!-- HALAMAN 1: FORMULIR PERMOHONAN INFORMASI PUBLIK (SESUAI GAMBAR 3) -->
           <div class="print-container bg-white p-8 sm:p-10 rounded-2xl border border-slate-300 shadow-sm font-doc text-black text-[11.5pt] leading-snug">
             <div class="text-center mb-3">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/KPU_Logo.svg/200px-KPU_Logo.svg.png"
-                   onerror="this.src='https://placehold.co/70x70/991b1b/ffffff?text=KPU'"
-                   alt="Logo KPU" class="w-16 h-16 mx-auto mb-2 object-contain" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/KPU_Logo.svg"
+                   alt="Logo KPU" class="kpu-logo-img w-16 h-16 mx-auto mb-2 object-contain" />
               <div class="font-bold text-[12pt] tracking-wide">FORMULIR PERMOHONAN INFORMASI PUBLIK</div>
               <div class="font-bold text-[12pt] tracking-wide">KPU KABUPATEN MAMASA</div>
               <hr class="border-t-2 border-black mt-2 mb-3" />
@@ -424,9 +422,8 @@
           <!-- HALAMAN 2: TANDA TERIMA PERMOHONAN INFORMASI PUBLIK (OTOMATIS TERHUBUNG - SESUAI GAMBAR 2) -->
           <div class="print-container page-break bg-white p-8 sm:p-12 rounded-2xl border border-slate-300 shadow-sm font-doc text-black text-[12pt] leading-relaxed">
             <div class="text-center mb-4">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/KPU_Logo.svg/200px-KPU_Logo.svg.png"
-                   onerror="this.src='https://placehold.co/70x70/991b1b/ffffff?text=KPU'"
-                   alt="Logo KPU" class="w-16 h-16 mx-auto mb-2 object-contain" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/KPU_Logo.svg"
+                   alt="Logo KPU" class="kpu-logo-img w-16 h-16 mx-auto mb-2 object-contain" />
               <div class="font-bold text-[12pt]">FORMULIR PERMOHONAN INFORMASI PUBLIK</div>
               <div class="font-bold text-[12pt]">KPU KABUPATEN MAMASA</div>
               <hr class="border-t-2 border-black mt-2 mb-6" />
@@ -589,9 +586,8 @@
           <div class="print-container bg-white p-8 sm:p-10 rounded-2xl border border-slate-300 shadow-sm font-doc text-black text-[11pt] leading-snug">
             <!-- KOP SURAT RESMI -->
             <div class="flex items-center gap-4 border-b-4 border-double border-black pb-3 mb-4">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/KPU_Logo.svg/200px-KPU_Logo.svg.png"
-                   onerror="this.src='https://placehold.co/75x75/991b1b/ffffff?text=KPU'"
-                   alt="Logo KPU" class="w-16 h-16 object-contain flex-shrink-0" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/KPU_Logo.svg"
+                   alt="Logo KPU" class="kpu-logo-img w-16 h-16 object-contain flex-shrink-0" />
               <div class="text-center flex-1">
                 <div class="font-bold text-[13pt] leading-tight">PPID KOMISI PEMILIHAN UMUM</div>
                 <div class="font-bold text-[13pt] leading-tight">KABUPATEN MAMASA</div>
@@ -742,9 +738,8 @@
         <!-- Kop Buku Register -->
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4 pb-3 border-b border-slate-300">
           <div class="flex items-center gap-3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/KPU_Logo.svg/200px-KPU_Logo.svg.png"
-                 onerror="this.src='https://placehold.co/50x50/991b1b/ffffff?text=KPU'"
-                 alt="Logo KPU" class="w-11 h-11 object-contain" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/KPU_Logo.svg"
+                 alt="Logo KPU" class="kpu-logo-img w-11 h-11 object-contain" />
             <div>
               <div class="font-bold text-sm sm:text-base text-slate-900">Buku Register Permintaan Informasi Publik Tahun <span id="reg-tahun-judul">2026</span></div>
               <div class="font-bold text-xs sm:text-sm text-slate-800">KPU Kabupaten Mamasa</div>
@@ -1050,6 +1045,7 @@
 
     // INISIALISASI SAAT HALAMAN DIMUAT
     window.addEventListener('DOMContentLoaded', () => {
+      initOfficialKpuLogos();
       lucide.createIcons();
       updateAdminUI();
       populateSettingsInputs();
@@ -1062,24 +1058,50 @@
       }
     });
 
-    // TOAST NOTIFICATION (PENGGANTI ALERT)
-    function showToast(message, type = 'success') {
-      const container = document.getElementById('toast-container');
-      const toast = document.createElement('div');
-      const bg = type === 'error' ? 'bg-red-700' : type === 'info' ? 'bg-slate-800' : 'bg-emerald-700';
-      toast.className = `${bg} text-white px-4 py-3 rounded-xl shadow-lg text-xs sm:text-sm font-medium flex items-center gap-2 transition-all transform translate-y-0`;
-      toast.innerHTML = `<span>${message}</span>`;
-      container.appendChild(toast);
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        setTimeout(() => toast.remove(), 300);
-      }, 3500);
+    // LOGO RESMI KPU EMBEDDED (ANTI GAGAL LOAD / OFFLINE READY)
+    function initOfficialKpuLogos() {
+      const kpuSvgDataUri = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 250">
+          <path d="M110 6 C158 6 196 22 208 42 C218 82 218 168 208 208 C196 228 158 244 110 244 C62 244 24 228 12 208 C2 168 2 82 12 42 C24 22 62 6 110 6 Z" fill="#111111"/>
+          <path d="M110 38 C144 38 172 48 180 62 L180 125 L40 125 L40 62 C48 48 76 38 110 38 Z" fill="#d91e18"/>
+          <path d="M40 125 L180 125 L180 188 C172 202 144 212 110 212 C76 212 48 202 40 188 Z" fill="#ffffff"/>
+          <circle cx="23" cy="112" r="7.5" fill="#ffffff"/>
+          <circle cx="197" cy="112" r="7.5" fill="#ffffff"/>
+          <text x="110" y="30" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-weight="900" font-size="22" letter-spacing="2">KOMISI</text>
+          <text x="110" y="233" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-weight="900" font-size="18.5" letter-spacing="1.2">PEMILIHAN UMUM</text>
+          <g transform="translate(110,126)">
+            <path d="M-54,-36 C-42,-16 -34,8 -28,32 L-16,28 C-20,6 -26,-16 -38,-38 Z" fill="#eab308" stroke="#854d0e" stroke-width="1.5"/>
+            <path d="M54,-36 C42,-16 34,8 28,32 L16,28 C20,6 26,-16 38,-38 Z" fill="#eab308" stroke="#854d0e" stroke-width="1.5"/>
+            <path d="M-46,-22 C-36,-4 -28,16 -22,38 L-10,34 C-14,14 -20,-4 -30,-24 Z" fill="#facc15" stroke="#854d0e" stroke-width="1.2"/>
+            <path d="M46,-22 C36,-4 28,16 22,38 L10,34 C14,14 20,-4 30,-24 Z" fill="#facc15" stroke="#854d0e" stroke-width="1.2"/>
+            <path d="M-12,-42 C-6,-50 4,-50 10,-42 L6,-26 L-8,-26 Z" fill="#facc15" stroke="#854d0e" stroke-width="1.5"/>
+            <polygon points="-24,-22 24,-22 20,16 0,34 -20,16" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+            <polygon points="-22,-20 0,-20 0,2 -21,2" fill="#d91e18"/>
+            <polygon points="0,2 21,2 18,15 0,31" fill="#d91e18"/>
+            <line x1="0" y1="-20" x2="0" y2="31" stroke="#111111" stroke-width="1.8"/>
+            <line x1="-21" y1="2" x2="21" y2="2" stroke="#111111" stroke-width="1.8"/>
+            <polygon points="-8,-8 8,-8 6,8 0,13 -6,8" fill="#111111"/>
+            <polygon points="0,-5 2,0 7,0 3,3 4,8 0,5 -4,8 -3,3 -7,0 -2,0" fill="#facc15"/>
+            <path d="M-36,42 Q0,54 36,42 L32,50 Q0,61 -32,50 Z" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+            <text x="0" y="51" text-anchor="middle" fill="#111111" font-family="Arial, sans-serif" font-weight="bold" font-size="5.2">BHINNEKA TUNGGAL IKA</text>
+          </g>
+        </svg>
+      `);
+      document.querySelectorAll('.kpu-logo-img').forEach(img => {
+        img.onerror = function() { this.src = kpuSvgDataUri; };
+        if (!img.complete || img.naturalWidth === 0) {
+          img.src = kpuSvgDataUri;
+        }
+      });
     }
 
-    // NAVIGASI TAB
+    // =========================================================================
+    // NAVIGASI TAB & NOTIFIKASI
+    // =========================================================================
     function switchTab(tabName) {
-      document.querySelectorAll('.tab-section').forEach(el => el.classList.add('hidden'));
-      document.getElementById('tab-' + tabName).classList.remove('hidden');
+      document.querySelectorAll('.tab-section').forEach(sec => sec.classList.add('hidden'));
+      const target = document.getElementById('tab-' + tabName);
+      if (target) target.classList.remove('hidden');
 
       document.querySelectorAll('.nav-btn').forEach(btn => {
         if (btn.dataset.tab === tabName) {
@@ -1090,47 +1112,84 @@
           btn.classList.add('text-red-100');
         }
       });
-      lucide.createIcons();
+
+      if (tabName === 'form-keberatan') {
+        populatePermohonanDropdown();
+      }
+      if (tabName === 'buku-register') {
+        renderBukuRegister();
+      }
     }
 
-    // HELPER NOMOR REGISTER OTOMATIS BERURUTAN
-    function getNextRegisterNumber(list, fieldName, formatTemplate) {
-      let maxNum = 0;
-      list.forEach(item => {
-        const val = String(item[fieldName] || '');
-        const match = val.match(/^(\d+)/);
-        if (match) {
-          const num = parseInt(match[1], 10);
-          if (num > maxNum) maxNum = num;
-        }
-      });
-      const next = String(maxNum + 1).padStart(3, '0');
-      const suffix = formatTemplate.replace(/^\d+/, '');
-      return next + suffix;
-    }
-
-    // FORMAT TANGGAL INDONESIA
-    function formatTanggalIndo(dateStr) {
-      if (!dateStr) return '';
-      const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
-      const parts = dateStr.split('-');
-      if (parts.length !== 3) return dateStr;
-      return `${parseInt(parts[2], 10)} ${bulan[parseInt(parts[1], 10) - 1]} ${parts[0]}`;
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const bg = type === 'error' ? 'bg-red-700' : (type === 'info' ? 'bg-slate-800' : 'bg-emerald-700');
+      toast.className = `${bg} text-white px-4 py-3 rounded-xl shadow-lg text-xs sm:text-sm font-medium flex items-center gap-2 transition-all duration-300`;
+      toast.innerHTML = `<span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 3200);
     }
 
     // =========================================================================
-    // LOGIKA FORM 1: PERMOHONAN & TANDA TERIMA
+    // GENERATOR NOMOR REGISTER BERURUTAN OTOMATIS
+    // =========================================================================
+    function getNextPermohonanNumber() {
+      let maxNum = 0;
+      appState.permohonan.forEach(item => {
+        const match = String(item.No_Register || '').match(/^(\d+)/);
+        if (match) {
+          const n = parseInt(match[1], 10);
+          if (n > maxNum) maxNum = n;
+        }
+      });
+      const next = String(maxNum + 1).padStart(3, '0');
+      const fmt = appState.config.format_reg_permohonan || '000/PPID-KPU.MMS/2026';
+      return fmt.replace(/^\d+/, next);
+    }
+
+    function getNextKeberatanNumber() {
+      let maxNum = 0;
+      appState.keberatan.forEach(item => {
+        const match = String(item.No_Register_Keberatan || '').match(/^(\d+)/);
+        if (match) {
+          const n = parseInt(match[1], 10);
+          if (n > maxNum) maxNum = n;
+        }
+      });
+      const next = String(maxNum + 1).padStart(3, '0');
+      const fmt = appState.config.format_reg_keberatan || '000/KEB-PPID.MMS/2026';
+      return fmt.replace(/^\d+/, next);
+    }
+
+    function formatTanggalIndo(dateStr) {
+      if (!dateStr) return '';
+      const bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+      const d = new Date(dateStr);
+      if (isNaN(d.getTime())) return dateStr;
+      return `${d.getDate()} ${bulan[d.getMonth()]} ${d.getFullYear()}`;
+    }
+
+    // =========================================================================
+    // 1. FORMULIR PERMOHONAN & TANDA TERIMA (TERHUBUNG OTOMATIS)
     // =========================================================================
     function resetFormPermohonan() {
       document.getElementById('form-permohonan').reset();
       document.getElementById('prm-id').value = '';
-      const nextNo = getNextRegisterNumber(appState.permohonan, 'No_Register', appState.config.format_reg_permohonan);
-      const noRegInput = document.getElementById('prm-noreg');
-      noRegInput.value = nextNo;
-      noRegInput.readOnly = !appState.isAdmin;
-      document.getElementById('badge-edit-reg-prm').classList.toggle('hidden', !appState.isAdmin);
+      const nextReg = getNextPermohonanNumber();
+      const noregInput = document.getElementById('prm-noreg');
+      noregInput.value = nextReg;
+      noregInput.readOnly = !appState.isAdmin;
 
-      document.getElementById('prm-tgl').value = new Date().toISOString().split('T')[0];
+      const badgeEdit = document.getElementById('badge-edit-reg-prm');
+      if (appState.isAdmin) badgeEdit.classList.remove('hidden');
+      else badgeEdit.classList.add('hidden');
+
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('prm-tgl').value = today;
       document.getElementById('prm-petugas').value = appState.config.petugas_default || 'Petugas Layanan PPID';
       syncPreviewPermohonan();
     }
@@ -1149,7 +1208,7 @@
       const caraSalinan = document.getElementById('prm-cara-salinan').value;
       const petugas = document.getElementById('prm-petugas').value;
 
-      // Isi Form Permohonan
+      // Sinkron ke Halaman 1: Formulir Permohonan
       document.getElementById('prev-prm-noreg').textContent = noreg;
       document.getElementById('prev-prm-nama').textContent = nama;
       document.getElementById('prev-prm-alamat').textContent = alamat;
@@ -1161,36 +1220,26 @@
       document.getElementById('prev-prm-ttd-pemohon').textContent = nama;
       document.getElementById('prev-prm-ttd-petugas').textContent = petugas;
 
-      // Tanda centang Kategori
       document.getElementById('check-kat-1').classList.toggle('hidden', kategori !== '1');
       document.getElementById('check-kat-2').classList.toggle('hidden', kategori !== '2');
 
-      // Coret opsi Cara Memperoleh sesuai keterangan ***
-      const opt1 = document.getElementById('opt-peroleh-1');
-      const opt2 = document.getElementById('opt-peroleh-2');
-      const spHard = document.getElementById('span-hardcopy');
-      const spSoft = document.getElementById('span-softcopy');
-      opt1.classList.remove('line-through', 'text-slate-400');
-      opt2.classList.remove('line-through', 'text-slate-400');
-      spHard.classList.remove('line-through', 'text-slate-400');
-      spSoft.classList.remove('line-through', 'text-slate-400');
-
-      if (caraPeroleh === '1') {
-        opt2.classList.add('line-through', 'text-slate-400');
-      } else if (caraPeroleh === '2-softcopy') {
-        opt1.classList.add('line-through', 'text-slate-400');
-        spHard.classList.add('line-through', 'text-slate-400');
+      const spanHard = document.getElementById('span-hardcopy');
+      const spanSoft = document.getElementById('span-softcopy');
+      spanHard.classList.remove('line-through', 'font-bold');
+      spanSoft.classList.remove('line-through', 'font-bold');
+      if (caraPeroleh === '2-softcopy') {
+        spanHard.classList.add('line-through');
+        spanSoft.classList.add('font-bold');
       } else if (caraPeroleh === '2-hardcopy') {
-        opt1.classList.add('line-through', 'text-slate-400');
-        spSoft.classList.add('line-through', 'text-slate-400');
+        spanSoft.classList.add('line-through');
+        spanHard.classList.add('font-bold');
       }
 
-      // Centang Cara Salinan
       document.getElementById('check-sal-1').classList.toggle('hidden', caraSalinan !== '1');
       document.getElementById('check-sal-2').classList.toggle('hidden', caraSalinan !== '2');
       document.getElementById('check-sal-3').classList.toggle('hidden', caraSalinan !== '3');
 
-      // OTOMATIS TERHUBUNG KE TANDA TERIMA (HALAMAN 2)
+      // Sinkron Otomatis ke Halaman 2: Tanda Terima
       document.getElementById('tt-nama').textContent = nama;
       document.getElementById('tt-noreg').textContent = noreg;
       document.getElementById('tt-tgl').textContent = tgl;
@@ -1199,48 +1248,51 @@
       document.getElementById('tt-sign-petugas').textContent = petugas;
     }
 
-    async function handleSavePermohonan(e) {
+    function handleSavePermohonan(e) {
       e.preventDefault();
-      const existingId = document.getElementById('prm-id').value;
+      const id = document.getElementById('prm-id').value;
       const caraPeroleh = document.getElementById('prm-cara-peroleh').value;
+      const bentukInfo = caraPeroleh === '2-hardcopy' ? 'Hardcopy' : 'Softcopy';
+      const jenisPrm = caraPeroleh === '1' ? 'Melihat/Mengetahui' : 'Meminta Salinan';
 
       const record = {
-        ID: existingId || 'PRM-' + Date.now(),
-        No_Register: document.getElementById('prm-noreg').value,
+        ID: id || 'PRM-' + Date.now(),
+        No_Register: document.getElementById('prm-noreg').value.trim(),
         Tgl_Permohonan: document.getElementById('prm-tgl').value,
-        Nama_Pemohon: document.getElementById('prm-nama').value,
-        Alamat: document.getElementById('prm-alamat').value,
-        No_Kontak: document.getElementById('prm-kontak').value,
-        Pekerjaan: document.getElementById('prm-pekerjaan').value,
-        Rincian_Informasi: document.getElementById('prm-rincian').value,
+        Nama_Pemohon: document.getElementById('prm-nama').value.trim(),
+        Alamat: document.getElementById('prm-alamat').value.trim(),
+        No_Kontak: document.getElementById('prm-kontak').value.trim(),
+        Pekerjaan: document.getElementById('prm-pekerjaan').value.trim(),
+        Rincian_Informasi: document.getElementById('prm-rincian').value.trim(),
         Kategori_Informasi: document.getElementById('prm-kategori').value,
-        Tujuan_Penggunaan: document.getElementById('prm-tujuan').value,
+        Tujuan_Penggunaan: document.getElementById('prm-tujuan').value.trim(),
         Cara_Memperoleh: caraPeroleh,
         Cara_Salinan: document.getElementById('prm-cara-salinan').value,
         Status_Permohonan: 'Diproses',
         Dikuasai_Ya_Tidak: 'Ya',
         Belum_Didokumentasikan: '-',
-        Bentuk_Informasi: caraPeroleh === '2-hardcopy' ? 'Hardcopy' : 'Softcopy',
-        Jenis_Permohonan: caraPeroleh === '1' ? 'Melihat/Mengetahui' : 'Meminta Salinan',
+        Bentuk_Informasi: bentukInfo,
+        Jenis_Permohonan: jenisPrm,
         Keputusan: 'Diberikan Sepenuhnya',
         Alasan_Penolakan: '-',
         Tgl_Pemberitahuan: document.getElementById('prm-tgl').value,
-        Tgl_Pemberian: '',
+        Tgl_Pemberian: document.getElementById('prm-tgl').value,
         Biaya: 'Rp 0',
         Cara_Bayar: 'Gratis',
-        Nama_Petugas: document.getElementById('prm-petugas').value
+        Nama_Petugas: document.getElementById('prm-petugas').value.trim()
       };
 
-      if (existingId) {
-        const idx = appState.permohonan.findIndex(x => x.ID === existingId);
-        if (idx !== -1) appState.permohonan[idx] = { ...appState.permohonan[idx], ...record };
+      const existingIdx = appState.permohonan.findIndex(x => x.ID === record.ID);
+      if (existingIdx >= 0) {
+        appState.permohonan[existingIdx] = { ...appState.permohonan[existingIdx], ...record };
+        showToast('Permohonan berhasil diperbarui & tersinkron ke Buku Register!');
       } else {
         appState.permohonan.push(record);
+        showToast(`Permohonan ${record.No_Register} tersimpan & otomatis masuk Buku Register!`);
       }
 
       saveLocalState();
       refreshAllViews();
-      showToast(`Tersimpan! No. Register ${record.No_Register} otomatis masuk ke Tanda Terima & Buku Register.`);
 
       if (appState.gasUrl) {
         postToBackend({ action: 'SAVE_PERMOHONAN', data: record });
@@ -1248,33 +1300,45 @@
     }
 
     // =========================================================================
-    // LOGIKA FORM 2: KEBERATAN
+    // 2. FORMULIR KEBERATAN ATAS PELAYANAN INFORMASI
     // =========================================================================
-    function resetFormKeberatan() {
-      document.getElementById('form-keberatan').reset();
-      document.getElementById('keb-id').value = '';
-      const nextKeb = getNextRegisterNumber(appState.keberatan, 'No_Register_Keberatan', appState.config.format_reg_keberatan);
-      const inputKeb = document.getElementById('keb-noreg');
-      inputKeb.value = nextKeb;
-      inputKeb.readOnly = !appState.isAdmin;
-
-      document.getElementById('keb-nosurat').value = nextKeb;
-      document.getElementById('keb-tgl-pengajuan').value = new Date().toISOString().split('T')[0];
-      document.getElementById('keb-petugas').value = appState.config.petugas_default || 'Petugas Layanan PPID';
-      syncPreviewKeberatan();
+    function populatePermohonanDropdown() {
+      const sel = document.getElementById('keb-ref-select');
+      sel.innerHTML = '<option value="">-- Pilih Nomor Register Permohonan --</option>';
+      appState.permohonan.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.ID;
+        opt.textContent = `${p.No_Register} - ${p.Nama_Pemohon}`;
+        sel.appendChild(opt);
+      });
     }
 
     function autofillKeberatanFromPermohonan() {
       const selectedId = document.getElementById('keb-ref-select').value;
-      const prm = appState.permohonan.find(p => p.ID === selectedId);
-      if (!prm) return;
+      const p = appState.permohonan.find(item => item.ID === selectedId);
+      if (!p) return;
 
-      document.getElementById('keb-nopermohonan').value = prm.No_Register;
-      document.getElementById('keb-tujuan').value = prm.Tujuan_Penggunaan;
-      document.getElementById('keb-nama').value = prm.Nama_Pemohon;
-      document.getElementById('keb-alamat').value = prm.Alamat;
+      document.getElementById('keb-nopermohonan').value = p.No_Register;
+      document.getElementById('keb-tujuan').value = p.Tujuan_Penggunaan;
+      document.getElementById('keb-nama').value = p.Nama_Pemohon;
+      document.getElementById('keb-alamat').value = p.Alamat;
       syncPreviewKeberatan();
-      showToast('Data pemohon ditarik dari Permohonan Informasi.');
+    }
+
+    function resetFormKeberatan() {
+      document.getElementById('form-keberatan').reset();
+      document.getElementById('keb-id').value = '';
+      const nextKeb = getNextKeberatanNumber();
+      const noregInput = document.getElementById('keb-noreg');
+      noregInput.value = nextKeb;
+      noregInput.readOnly = !appState.isAdmin;
+
+      document.getElementById('keb-nosurat').value = nextKeb;
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('keb-tgl-pengajuan').value = today;
+      document.getElementById('keb-petugas').value = appState.config.petugas_default || 'Petugas Layanan PPID';
+      populatePermohonanDropdown();
+      syncPreviewKeberatan();
     }
 
     function syncPreviewKeberatan() {
@@ -1282,48 +1346,49 @@
       document.getElementById('prev-keb-noreg').textContent = document.getElementById('keb-noreg').value;
       document.getElementById('prev-keb-nopermohonan').textContent = document.getElementById('keb-nopermohonan').value;
       document.getElementById('prev-keb-tujuan').textContent = document.getElementById('keb-tujuan').value;
-      document.getElementById('prev-keb-nama').textContent = document.getElementById('keb-nama').value;
+      const nama = document.getElementById('keb-nama').value;
+      document.getElementById('prev-keb-nama').textContent = nama;
       document.getElementById('prev-keb-instansi').textContent = document.getElementById('keb-instansi').value;
       document.getElementById('prev-keb-alamat').textContent = document.getElementById('keb-alamat').value;
       document.getElementById('prev-keb-alasan').textContent = document.getElementById('keb-alasan').value;
       document.getElementById('prev-keb-kasus').textContent = document.getElementById('keb-kasus').value;
       document.getElementById('prev-keb-tanggapan').textContent = document.getElementById('keb-tgl-tanggapan').value;
-
-      const tgl = formatTanggalIndo(document.getElementById('keb-tgl-pengajuan').value);
-      document.getElementById('prev-keb-tgl').textContent = tgl;
-      document.getElementById('prev-keb-ttd-petugas').textContent = document.getElementById('keb-petugas').value;
-      document.getElementById('prev-keb-ttd-pemohon').textContent = document.getElementById('keb-nama').value;
+      document.getElementById('prev-keb-tgl').textContent = formatTanggalIndo(document.getElementById('keb-tgl-pengajuan').value);
+      const petugas = document.getElementById('keb-petugas').value;
+      document.getElementById('prev-keb-ttd-petugas').textContent = petugas;
+      document.getElementById('prev-keb-ttd-pemohon').textContent = nama;
     }
 
-    async function handleSaveKeberatan(e) {
+    function handleSaveKeberatan(e) {
       e.preventDefault();
-      const existingId = document.getElementById('keb-id').value;
+      const id = document.getElementById('keb-id').value;
       const record = {
-        ID: existingId || 'KEB-' + Date.now(),
-        Nomor_Surat: document.getElementById('keb-nosurat').value,
-        No_Register_Keberatan: document.getElementById('keb-noreg').value,
-        No_Permohonan_Ref: document.getElementById('keb-nopermohonan').value,
-        Tujuan_Penggunaan: document.getElementById('keb-tujuan').value,
-        Nama_Pemohon: document.getElementById('keb-nama').value,
-        Instansi: document.getElementById('keb-instansi').value,
-        Alamat: document.getElementById('keb-alamat').value,
-        Alasan_Keberatan: document.getElementById('keb-alasan').value,
-        Kasus_Posisi: document.getElementById('keb-kasus').value,
-        Tgl_Tanggapan_Diberikan: document.getElementById('keb-tgl-tanggapan').value,
+        ID: id || 'KEB-' + Date.now(),
+        Nomor_Surat: document.getElementById('keb-nosurat').value.trim(),
+        No_Register_Keberatan: document.getElementById('keb-noreg').value.trim(),
+        No_Permohonan_Ref: document.getElementById('keb-nopermohonan').value.trim(),
+        Tujuan_Penggunaan: document.getElementById('keb-tujuan').value.trim(),
+        Nama_Pemohon: document.getElementById('keb-nama').value.trim(),
+        Instansi: document.getElementById('keb-instansi').value.trim(),
+        Alamat: document.getElementById('keb-alamat').value.trim(),
+        Alasan_Keberatan: document.getElementById('keb-alasan').value.trim(),
+        Kasus_Posisi: document.getElementById('keb-kasus').value.trim(),
+        Tgl_Tanggapan_Diberikan: document.getElementById('keb-tgl-tanggapan').value.trim(),
         Tgl_Pengajuan: document.getElementById('keb-tgl-pengajuan').value,
-        Nama_Petugas: document.getElementById('keb-petugas').value
+        Nama_Petugas: document.getElementById('keb-petugas').value.trim()
       };
 
-      if (existingId) {
-        const idx = appState.keberatan.findIndex(x => x.ID === existingId);
-        if (idx !== -1) appState.keberatan[idx] = record;
+      const idx = appState.keberatan.findIndex(x => x.ID === record.ID);
+      if (idx >= 0) {
+        appState.keberatan[idx] = record;
+        showToast('Formulir keberatan berhasil diperbarui!');
       } else {
         appState.keberatan.push(record);
+        showToast(`Pengajuan Keberatan ${record.No_Register_Keberatan} berhasil dicatat!`);
       }
 
       saveLocalState();
       refreshAllViews();
-      showToast(`Pengajuan Keberatan ${record.No_Register_Keberatan} berhasil dicatat!`);
 
       if (appState.gasUrl) {
         postToBackend({ action: 'SAVE_KEBERATAN', data: record });
@@ -1331,12 +1396,44 @@
     }
 
     // =========================================================================
-    // LOGIKA TAB 3: BUKU REGISTER & EDIT ADMIN
+    // 3. BUKU REGISTER & RENDER TABEL
     // =========================================================================
-    function renderBukuRegister() {
-      const keyword = (document.getElementById('search-register').value || '').toLowerCase();
-      const tbody = document.getElementById('buku-register-tbody');
+    function refreshAllViews() {
+      document.getElementById('stat-total-permohonan').textContent = appState.permohonan.length;
+      document.getElementById('stat-next-reg').textContent = getNextPermohonanNumber();
+      document.getElementById('stat-total-keberatan').textContent = appState.keberatan.length;
       document.getElementById('reg-tahun-judul').textContent = appState.config.tahun_anggaran || '2026';
+
+      renderRecentTable();
+      renderBukuRegister();
+      renderKeberatanTable();
+    }
+
+    function renderRecentTable() {
+      const tbody = document.getElementById('recent-table-body');
+      if (appState.permohonan.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-slate-400">Belum ada data permohonan tercatat.</td></tr>`;
+        return;
+      }
+      const recent = [...appState.permohonan].reverse().slice(0, 5);
+      tbody.innerHTML = recent.map(item => `
+        <tr class="hover:bg-slate-50">
+          <td class="px-6 py-3.5 font-bold text-red-900">${item.No_Register}</td>
+          <td class="px-6 py-3.5 text-slate-600">${formatTanggalIndo(item.Tgl_Permohonan)}</td>
+          <td class="px-6 py-3.5 font-medium text-slate-900">${item.Nama_Pemohon}</td>
+          <td class="px-6 py-3.5 text-slate-600 max-w-xs truncate">${item.Rincian_Informasi}</td>
+          <td class="px-6 py-3.5 text-right">
+            <button onclick="loadPermohonanToForm('${item.ID}')" class="text-xs bg-slate-800 hover:bg-slate-900 text-white px-3 py-1.5 rounded-lg font-semibold">
+              Buka & Cetak PDF
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function renderBukuRegister() {
+      const tbody = document.getElementById('buku-register-tbody');
+      const keyword = (document.getElementById('search-register').value || '').toLowerCase();
 
       const filtered = appState.permohonan.filter(item =>
         String(item.No_Register).toLowerCase().includes(keyword) ||
@@ -1345,108 +1442,158 @@
       );
 
       if (filtered.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="26" class="border border-black p-6 text-center text-slate-500">Belum ada data pada Buku Register Permintaan Informasi.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="26" class="border border-black p-6 text-center text-slate-500">Belum ada data pada Buku Register Permintaan Informasi Publik.</td></tr>`;
         return;
       }
 
       tbody.innerHTML = filtered.map((item, idx) => {
-        const isYa = item.Dikuasai_Ya_Tidak === 'Ya' ? '✓' : '';
-        const isTidak = item.Dikuasai_Ya_Tidak === 'Tidak' ? '✓' : '';
-        const isBelum = item.Dikuasai_Ya_Tidak === 'Belum' ? '✓' : '';
-        const isSoft = (item.Bentuk_Informasi === 'Softcopy' || item.Bentuk_Informasi === 'Keduanya') ? '✓' : '';
-        const isHard = (item.Bentuk_Informasi === 'Hardcopy' || item.Bentuk_Informasi === 'Keduanya') ? '✓' : '';
-        const isLihat = item.Jenis_Permohonan === 'Melihat/Mengetahui' ? '✓' : '';
-        const isSalin = item.Jenis_Permohonan === 'Meminta Salinan' ? '✓' : '';
+        const kuasaYa = item.Dikuasai_Ya_Tidak === 'Ya' ? '✓' : '';
+        const kuasaTidak = item.Dikuasai_Ya_Tidak === 'Tidak' ? '✓' : '';
+        const belumDok = item.Dikuasai_Ya_Tidak === 'Belum' ? '✓' : '';
+        const isSoft = String(item.Bentuk_Informasi).includes('Softcopy') || item.Bentuk_Informasi === 'Keduanya' ? '✓' : '';
+        const isHard = String(item.Bentuk_Informasi).includes('Hardcopy') || item.Bentuk_Informasi === 'Keduanya' ? '✓' : '';
+        const isMelihat = item.Jenis_Permohonan === 'Melihat/Mengetahui' ? '✓' : '';
+        const isSalinan = item.Jenis_Permohonan === 'Meminta Salinan' ? '✓' : '';
 
         return `
-          <tr class="hover:bg-slate-50">
+          <tr class="hover:bg-amber-50/40">
             <td class="border border-black p-1.5 text-center">${idx + 1}</td>
             <td class="border border-black p-1.5 font-bold whitespace-nowrap">${item.No_Register}</td>
-            <td class="border border-black p-1.5 whitespace-nowrap">${item.Tgl_Permohonan}</td>
+            <td class="border border-black p-1.5 whitespace-nowrap">${formatTanggalIndo(item.Tgl_Permohonan)}</td>
             <td class="border border-black p-1.5 font-semibold">${item.Nama_Pemohon}</td>
             <td class="border border-black p-1.5">${item.Alamat}</td>
             <td class="border border-black p-1.5">${item.No_Kontak}</td>
             <td class="border border-black p-1.5">${item.Pekerjaan}</td>
-            <td class="border border-black p-1.5">1. ${item.Rincian_Informasi}</td>
+            <td class="border border-black p-1.5">${item.Rincian_Informasi}</td>
             <td class="border border-black p-1.5">${item.Tujuan_Penggunaan}</td>
-            <td class="border border-black p-1.5 text-center">${item.Status_Permohonan || 'Diproses'}</td>
-            <td class="border border-black p-1.5 text-center font-bold">${isYa}</td>
-            <td class="border border-black p-1.5 text-center font-bold">${isTidak}</td>
-            <td class="border border-black p-1.5 text-center font-bold">${isBelum}</td>
+            <td class="border border-black p-1.5 text-center font-semibold">${item.Status_Permohonan || 'Diproses'}</td>
+            <td class="border border-black p-1.5 text-center font-bold">${kuasaYa}</td>
+            <td class="border border-black p-1.5 text-center font-bold">${kuasaTidak}</td>
+            <td class="border border-black p-1.5 text-center font-bold">${belumDok}</td>
             <td class="border border-black p-1.5 text-center font-bold">${isSoft}</td>
             <td class="border border-black p-1.5 text-center font-bold">${isHard}</td>
-            <td class="border border-black p-1.5 text-center font-bold">${isLihat}</td>
-            <td class="border border-black p-1.5 text-center font-bold">${isSalin}</td>
+            <td class="border border-black p-1.5 text-center font-bold">${isMelihat}</td>
+            <td class="border border-black p-1.5 text-center font-bold">${isSalinan}</td>
             <td class="border border-black p-1.5">${item.Keputusan || '-'}</td>
             <td class="border border-black p-1.5">${item.Alasan_Penolakan || '-'}</td>
-            <td class="border border-black p-1.5 whitespace-nowrap">${item.Tgl_Pemberitahuan || '-'}</td>
-            <td class="border border-black p-1.5 whitespace-nowrap">${item.Tgl_Pemberian || '-'}</td>
+            <td class="border border-black p-1.5 whitespace-nowrap">${formatTanggalIndo(item.Tgl_Pemberitahuan)}</td>
+            <td class="border border-black p-1.5 whitespace-nowrap">${formatTanggalIndo(item.Tgl_Pemberian)}</td>
             <td class="border border-black p-1.5">${item.Biaya || 'Rp 0'}</td>
             <td class="border border-black p-1.5">${item.Cara_Bayar || '-'}</td>
             <td class="border border-black p-1.5 text-center">
-              <button onclick="openPermohonanForPrint('${item.ID}')" class="text-blue-700 underline font-semibold">Lihat Form</button>
+              <button onclick="loadPermohonanToForm('${item.ID}')" class="text-blue-700 underline font-semibold">Lihat Form</button>
             </td>
             <td class="border border-black p-1.5">${item.Nama_Petugas || '-'}</td>
             <td class="no-print border border-black p-1.5 text-center whitespace-nowrap bg-amber-50/50">
-              <button onclick="openAdminEditModal('${item.ID}')" class="px-2 py-1 bg-amber-500 text-white rounded text-[10px] font-bold hover:bg-amber-600">Edit</button>
-              ${appState.isAdmin ? `<button onclick="deletePermohonan('${item.ID}')" class="px-2 py-1 bg-red-600 text-white rounded text-[10px] font-bold hover:bg-red-700 ml-1">Hapus</button>` : ''}
+              ${appState.isAdmin ? `
+                <button onclick="openAdminEditRegister('${item.ID}')" class="bg-amber-600 text-white px-2 py-1 rounded text-[10px] font-bold mr-1">Edit</button>
+                <button onclick="deletePermohonan('${item.ID}')" class="bg-red-700 text-white px-2 py-1 rounded text-[10px] font-bold">Hapus</button>
+              ` : `<span class="text-slate-400 italic text-[10px]">Login Admin</span>`}
             </td>
           </tr>
         `;
       }).join('');
     }
 
-    function openPermohonanForPrint(id) {
-      const item = appState.permohonan.find(x => x.ID === id);
-      if (!item) return;
-
-      document.getElementById('prm-id').value = item.ID;
-      document.getElementById('prm-noreg').value = item.No_Register;
-      document.getElementById('prm-tgl').value = item.Tgl_Permohonan;
-      document.getElementById('prm-nama').value = item.Nama_Pemohon;
-      document.getElementById('prm-alamat').value = item.Alamat;
-      document.getElementById('prm-pekerjaan').value = item.Pekerjaan;
-      document.getElementById('prm-kontak').value = item.No_Kontak;
-      document.getElementById('prm-rincian').value = item.Rincian_Informasi;
-      document.getElementById('prm-kategori').value = item.Kategori_Informasi || '1';
-      document.getElementById('prm-tujuan').value = item.Tujuan_Penggunaan;
-      document.getElementById('prm-cara-peroleh').value = item.Cara_Memperoleh || '2-softcopy';
-      document.getElementById('prm-cara-salinan').value = item.Cara_Salinan || '3';
-      document.getElementById('prm-petugas').value = item.Nama_Petugas || '';
-
-      syncPreviewPermohonan();
-      switchTab('form-permohonan');
-    }
-
-    function openAdminEditModal(id) {
-      if (!appState.isAdmin) {
-        showToast('Silakan Login sebagai Admin terlebih dahulu untuk mengedit Buku Register.', 'error');
-        openLoginModal();
+    function renderKeberatanTable() {
+      const tbody = document.getElementById('keberatan-table-body');
+      if (appState.keberatan.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="px-4 py-6 text-center text-slate-400">Belum ada data pengajuan keberatan.</td></tr>`;
         return;
       }
-      const item = appState.permohonan.find(x => x.ID === id);
-      if (!item) return;
+      tbody.innerHTML = appState.keberatan.map(k => `
+        <tr class="hover:bg-slate-50">
+          <td class="px-4 py-3 font-bold text-amber-900">${k.No_Register_Keberatan}</td>
+          <td class="px-4 py-3 text-slate-600">${k.No_Permohonan_Ref}</td>
+          <td class="px-4 py-3 font-medium text-slate-900">${k.Nama_Pemohon}</td>
+          <td class="px-4 py-3 text-slate-600 max-w-xs truncate">${k.Alasan_Keberatan}</td>
+          <td class="px-4 py-3 text-right space-x-1">
+            <button onclick="loadKeberatanToForm('${k.ID}')" class="bg-slate-800 text-white px-2.5 py-1 rounded-lg text-xs font-semibold">Buka / Print</button>
+            ${appState.isAdmin ? `<button onclick="deleteKeberatan('${k.ID}')" class="bg-red-700 text-white px-2.5 py-1 rounded-lg text-xs font-semibold">Hapus</button>` : ''}
+          </td>
+        </tr>
+      `).join('');
+    }
 
-      document.getElementById('adm-reg-id').value = item.ID;
-      document.getElementById('adm-reg-no').value = item.No_Register;
-      document.getElementById('adm-reg-tgl').value = item.Tgl_Permohonan;
-      document.getElementById('adm-reg-nama').value = item.Nama_Pemohon;
-      document.getElementById('adm-reg-alamat').value = item.Alamat;
-      document.getElementById('adm-reg-kontak').value = item.No_Kontak;
-      document.getElementById('adm-reg-pekerjaan').value = item.Pekerjaan;
-      document.getElementById('adm-reg-rincian').value = item.Rincian_Informasi;
-      document.getElementById('adm-reg-tujuan').value = item.Tujuan_Penggunaan;
-      document.getElementById('adm-reg-status').value = item.Status_Permohonan || 'Diproses';
-      document.getElementById('adm-reg-kuasa').value = item.Dikuasai_Ya_Tidak || 'Ya';
-      document.getElementById('adm-reg-bentuk').value = item.Bentuk_Informasi || 'Softcopy';
-      document.getElementById('adm-reg-jenis').value = item.Jenis_Permohonan || 'Meminta Salinan';
-      document.getElementById('adm-reg-keputusan').value = item.Keputusan || 'Diberikan Sepenuhnya';
-      document.getElementById('adm-reg-tolak').value = item.Alasan_Penolakan || '-';
-      document.getElementById('adm-reg-tgl-beritahu').value = item.Tgl_Pemberitahuan || '';
-      document.getElementById('adm-reg-tgl-beri').value = item.Tgl_Pemberian || '';
-      document.getElementById('adm-reg-biaya').value = item.Biaya || 'Rp 0';
-      document.getElementById('adm-reg-carabayar').value = item.Cara_Bayar || '-';
-      document.getElementById('adm-reg-petugas').value = item.Nama_Petugas || '';
+    // =========================================================================
+    // MUAT DATA KE FORM UNTUK DICETAK ATAU DIEDIT
+    // =========================================================================
+    function loadPermohonanToForm(id) {
+      const p = appState.permohonan.find(x => x.ID === id);
+      if (!p) return;
+
+      switchTab('form-permohonan');
+      document.getElementById('prm-id').value = p.ID;
+      document.getElementById('prm-noreg').value = p.No_Register;
+      document.getElementById('prm-noreg').readOnly = !appState.isAdmin;
+      document.getElementById('prm-tgl').value = p.Tgl_Permohonan;
+      document.getElementById('prm-nama').value = p.Nama_Pemohon;
+      document.getElementById('prm-alamat').value = p.Alamat;
+      document.getElementById('prm-pekerjaan').value = p.Pekerjaan;
+      document.getElementById('prm-kontak').value = p.No_Kontak;
+      document.getElementById('prm-rincian').value = p.Rincian_Informasi;
+      document.getElementById('prm-kategori').value = p.Kategori_Informasi || '1';
+      document.getElementById('prm-tujuan').value = p.Tujuan_Penggunaan;
+      document.getElementById('prm-cara-peroleh').value = p.Cara_Memperoleh || '2-softcopy';
+      document.getElementById('prm-cara-salinan').value = p.Cara_Salinan || '3';
+      document.getElementById('prm-petugas').value = p.Nama_Petugas;
+
+      syncPreviewPermohonan();
+      showToast(`Dokumen ${p.No_Register} dimuat. Siap dicetak atau diedit.`);
+    }
+
+    function loadKeberatanToForm(id) {
+      const k = appState.keberatan.find(x => x.ID === id);
+      if (!k) return;
+
+      switchTab('form-keberatan');
+      document.getElementById('keb-id').value = k.ID;
+      document.getElementById('keb-noreg').value = k.No_Register_Keberatan;
+      document.getElementById('keb-noreg').readOnly = !appState.isAdmin;
+      document.getElementById('keb-nosurat').value = k.Nomor_Surat;
+      document.getElementById('keb-nopermohonan').value = k.No_Permohonan_Ref;
+      document.getElementById('keb-tujuan').value = k.Tujuan_Penggunaan;
+      document.getElementById('keb-nama').value = k.Nama_Pemohon;
+      document.getElementById('keb-instansi').value = k.Instansi;
+      document.getElementById('keb-alamat').value = k.Alamat;
+      document.getElementById('keb-alasan').value = k.Alasan_Keberatan;
+      document.getElementById('keb-kasus').value = k.Kasus_Posisi;
+      document.getElementById('keb-tgl-pengajuan').value = k.Tgl_Pengajuan;
+      document.getElementById('keb-tgl-tanggapan').value = k.Tgl_Tanggapan_Diberikan;
+      document.getElementById('keb-petugas').value = k.Nama_Petugas;
+
+      syncPreviewKeberatan();
+      showToast(`Formulir Keberatan ${k.No_Register_Keberatan} siap dicetak.`);
+    }
+
+    // =========================================================================
+    // ADMIN EDIT LENGKAP BUKU REGISTER & HAPUS DATA
+    // =========================================================================
+    function openAdminEditRegister(id) {
+      if (!appState.isAdmin) return;
+      const p = appState.permohonan.find(x => x.ID === id);
+      if (!p) return;
+
+      document.getElementById('adm-reg-id').value = p.ID;
+      document.getElementById('adm-reg-no').value = p.No_Register;
+      document.getElementById('adm-reg-tgl').value = p.Tgl_Permohonan;
+      document.getElementById('adm-reg-nama').value = p.Nama_Pemohon;
+      document.getElementById('adm-reg-alamat').value = p.Alamat;
+      document.getElementById('adm-reg-kontak').value = p.No_Kontak;
+      document.getElementById('adm-reg-pekerjaan').value = p.Pekerjaan;
+      document.getElementById('adm-reg-rincian').value = p.Rincian_Informasi;
+      document.getElementById('adm-reg-tujuan').value = p.Tujuan_Penggunaan;
+      document.getElementById('adm-reg-status').value = p.Status_Permohonan || 'Diproses';
+      document.getElementById('adm-reg-kuasa').value = p.Dikuasai_Ya_Tidak || 'Ya';
+      document.getElementById('adm-reg-bentuk').value = p.Bentuk_Informasi || 'Softcopy';
+      document.getElementById('adm-reg-jenis').value = p.Jenis_Permohonan || 'Meminta Salinan';
+      document.getElementById('adm-reg-keputusan').value = p.Keputusan || 'Diberikan Sepenuhnya';
+      document.getElementById('adm-reg-tolak').value = p.Alasan_Penolakan || '-';
+      document.getElementById('adm-reg-tgl-beritahu').value = p.Tgl_Pemberitahuan || '';
+      document.getElementById('adm-reg-tgl-beri').value = p.Tgl_Pemberian || '';
+      document.getElementById('adm-reg-biaya').value = p.Biaya || 'Rp 0';
+      document.getElementById('adm-reg-carabayar').value = p.Cara_Bayar || 'Gratis';
+      document.getElementById('adm-reg-petugas').value = p.Nama_Petugas || '';
 
       document.getElementById('modal-edit-register').classList.remove('hidden');
     }
@@ -1455,18 +1602,18 @@
       e.preventDefault();
       const id = document.getElementById('adm-reg-id').value;
       const idx = appState.permohonan.findIndex(x => x.ID === id);
-      if (idx === -1) return;
+      if (idx < 0) return;
 
       const updated = {
         ...appState.permohonan[idx],
-        No_Register: document.getElementById('adm-reg-no').value,
+        No_Register: document.getElementById('adm-reg-no').value.trim(),
         Tgl_Permohonan: document.getElementById('adm-reg-tgl').value,
-        Nama_Pemohon: document.getElementById('adm-reg-nama').value,
-        Alamat: document.getElementById('adm-reg-alamat').value,
-        No_Kontak: document.getElementById('adm-reg-kontak').value,
-        Pekerjaan: document.getElementById('adm-reg-pekerjaan').value,
-        Rincian_Informasi: document.getElementById('adm-reg-rincian').value,
-        Tujuan_Penggunaan: document.getElementById('adm-reg-tujuan').value,
+        Nama_Pemohon: document.getElementById('adm-reg-nama').value.trim(),
+        Alamat: document.getElementById('adm-reg-alamat').value.trim(),
+        No_Kontak: document.getElementById('adm-reg-kontak').value.trim(),
+        Pekerjaan: document.getElementById('adm-reg-pekerjaan').value.trim(),
+        Rincian_Informasi: document.getElementById('adm-reg-rincian').value.trim(),
+        Tujuan_Penggunaan: document.getElementById('adm-reg-tujuan').value.trim(),
         Status_Permohonan: document.getElementById('adm-reg-status').value,
         Dikuasai_Ya_Tidak: document.getElementById('adm-reg-kuasa').value,
         Bentuk_Informasi: document.getElementById('adm-reg-bentuk').value,
@@ -1484,7 +1631,7 @@
       saveLocalState();
       refreshAllViews();
       closeModal('modal-edit-register');
-      showToast('Data Buku Register berhasil diperbarui oleh Admin.');
+      showToast('Data Buku Register berhasil diperbarui oleh Admin!');
 
       if (appState.gasUrl) {
         postToBackend({ action: 'SAVE_PERMOHONAN', data: updated });
@@ -1496,120 +1643,47 @@
       appState.permohonan = appState.permohonan.filter(x => x.ID !== id);
       saveLocalState();
       refreshAllViews();
-      showToast('Entri berhasil dihapus dari sistem.', 'info');
+      showToast('Entri register berhasil dihapus.', 'info');
       if (appState.gasUrl) {
         postToBackend({ action: 'DELETE_RECORD', sheet: 'Permohonan_Register', id: id });
       }
     }
 
-    // =========================================================================
-    // REFRESH SEMUA TAMPILAN
-    // =========================================================================
-    function refreshAllViews() {
-      // Update Dashboard Stats
-      document.getElementById('stat-total-permohonan').textContent = appState.permohonan.length;
-      document.getElementById('stat-total-keberatan').textContent = appState.keberatan.length;
-      document.getElementById('stat-next-reg').textContent = getNextRegisterNumber(
-        appState.permohonan, 'No_Register', appState.config.format_reg_permohonan
-      );
-
-      // Update Tabel Terbaru Dashboard
-      const recentTbody = document.getElementById('recent-table-body');
-      if (appState.permohonan.length === 0) {
-        recentTbody.innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-slate-400">Belum ada data permohonan. Silakan klik "Buat Permohonan Baru".</td></tr>`;
-      } else {
-        recentTbody.innerHTML = [...appState.permohonan].reverse().slice(0, 5).map(item => `
-          <tr class="hover:bg-slate-50">
-            <td class="px-6 py-3 font-bold text-red-900">${item.No_Register}</td>
-            <td class="px-6 py-3 text-slate-600">${item.Tgl_Permohonan}</td>
-            <td class="px-6 py-3 font-semibold">${item.Nama_Pemohon}</td>
-            <td class="px-6 py-3 text-slate-600 truncate max-w-xs">${item.Rincian_Informasi}</td>
-            <td class="px-6 py-3 text-right">
-              <button onclick="openPermohonanForPrint('${item.ID}')" class="text-xs bg-slate-800 text-white px-3 py-1.5 rounded-lg font-semibold hover:bg-slate-900">
-                Buka & Print PDF
-              </button>
-            </td>
-          </tr>
-        `).join('');
+    function deleteKeberatan(id) {
+      if (!appState.isAdmin) return;
+      appState.keberatan = appState.keberatan.filter(x => x.ID !== id);
+      saveLocalState();
+      refreshAllViews();
+      showToast('Data keberatan berhasil dihapus.', 'info');
+      if (appState.gasUrl) {
+        postToBackend({ action: 'DELETE_RECORD', sheet: 'Keberatan', id: id });
       }
-
-      // Update Dropdown Referensi di Form Keberatan
-      const refSelect = document.getElementById('keb-ref-select');
-      refSelect.innerHTML = `<option value="">-- Pilih Nomor Register Permohonan --</option>` +
-        appState.permohonan.map(p => `<option value="${p.ID}">${p.No_Register} - ${p.Nama_Pemohon}</option>`).join('');
-
-      // Update Tabel Keberatan
-      const kebTbody = document.getElementById('keberatan-table-body');
-      if (appState.keberatan.length === 0) {
-        kebTbody.innerHTML = `<tr><td colspan="5" class="px-4 py-6 text-center text-slate-400">Belum ada data pengajuan keberatan.</td></tr>`;
-      } else {
-        kebTbody.innerHTML = appState.keberatan.map(k => `
-          <tr class="hover:bg-slate-50">
-            <td class="px-4 py-3 font-bold text-amber-900">${k.No_Register_Keberatan}</td>
-            <td class="px-4 py-3">${k.No_Permohonan_Ref}</td>
-            <td class="px-4 py-3 font-semibold">${k.Nama_Pemohon}</td>
-            <td class="px-4 py-3 truncate max-w-xs">${k.Alasan_Keberatan}</td>
-            <td class="px-4 py-3 text-right">
-              <button onclick="loadKeberatanToPrint('${k.ID}')" class="px-2.5 py-1 bg-slate-800 text-white rounded text-xs font-semibold">Print PDF</button>
-            </td>
-          </tr>
-        `).join('');
-      }
-
-      renderBukuRegister();
-    }
-
-    function loadKeberatanToPrint(id) {
-      const k = appState.keberatan.find(x => x.ID === id);
-      if (!k) return;
-      document.getElementById('keb-id').value = k.ID;
-      document.getElementById('keb-nosurat').value = k.Nomor_Surat;
-      document.getElementById('keb-noreg').value = k.No_Register_Keberatan;
-      document.getElementById('keb-nopermohonan').value = k.No_Permohonan_Ref;
-      document.getElementById('keb-tujuan').value = k.Tujuan_Penggunaan;
-      document.getElementById('keb-nama').value = k.Nama_Pemohon;
-      document.getElementById('keb-instansi').value = k.Instansi;
-      document.getElementById('keb-alamat').value = k.Alamat;
-      document.getElementById('keb-alasan').value = k.Alasan_Keberatan;
-      document.getElementById('keb-kasus').value = k.Kasus_Posisi;
-      document.getElementById('keb-tgl-pengajuan').value = k.Tgl_Pengajuan;
-      document.getElementById('keb-tgl-tanggapan').value = k.Tgl_Tanggapan_Diberikan;
-      document.getElementById('keb-petugas').value = k.Nama_Petugas;
-      syncPreviewKeberatan();
     }
 
     // =========================================================================
-    // CETAK / EKSPOR PDF PRESISI
+    // CETAK / SIMPAN PDF DOKUMEN
     // =========================================================================
-    function printDocument(target) {
-      // Sembunyikan area cetak lain agar hanya dokumen yang dipilih yang keluar di PDF
+    function printDocument(mode) {
       const allAreas = ['print-area-permohonan', 'print-area-keberatan', 'print-area-register'];
-      allAreas.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.add('no-print');
-      });
+      allAreas.forEach(id => document.getElementById(id).classList.add('no-print'));
 
-      if (target === 'permohonan-combined') {
+      if (mode === 'permohonan-combined') {
         document.getElementById('print-area-permohonan').classList.remove('no-print');
-      } else if (target === 'keberatan') {
+      } else if (mode === 'keberatan') {
         document.getElementById('print-area-keberatan').classList.remove('no-print');
       }
 
       window.print();
 
-      // Kembalikan tampilan setelah print
       setTimeout(() => {
-        allAreas.forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.classList.remove('no-print');
-        });
+        allAreas.forEach(id => document.getElementById(id).classList.remove('no-print'));
       }, 500);
     }
 
     function printRegisterLandscape() {
       const style = document.createElement('style');
       style.id = 'temp-landscape-style';
-      style.innerHTML = `@media print { @page { size: landscape; margin: 8mm; } }`;
+      style.innerHTML = `@media print { @page { size: landscape; margin: 0mm !important; } }`;
       document.head.appendChild(style);
 
       const allAreas = ['print-area-permohonan', 'print-area-keberatan'];
