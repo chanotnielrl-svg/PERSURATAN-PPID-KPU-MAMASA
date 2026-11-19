@@ -166,7 +166,7 @@
       <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800 mb-2">
-            PKPU 4/2025 • Layanan Informasi Publik
+            PKPU 22/2023 • Layanan Informasi Publik
           </span>
           <h2 class="text-2xl font-bold text-slate-900">Selamat Datang di E-Persuratan PPID</h2>
           <p class="text-slate-600 text-sm mt-1">Komisi Pemilihan Umum Kabupaten Mamasa — Terintegrasi Otomatis dengan Buku Register & Cetak Dokumen Resmi.</p>
@@ -311,7 +311,7 @@
           <div>
             <label class="block text-xs font-semibold text-slate-700 mb-1">Kategori Informasi Publik **</label>
             <select id="prm-kategori" onchange="syncPreviewPermohonan()" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-red-700 focus:outline-none">
-              <option value="1">1. Informasi Pemilu dan Pemilihan</option>
+              <option value="1">1. Informasi Tahapan Pemilu</option>
               <option value="2">2. Informasi KPU sebagai Badan Publik</option>
             </select>
           </div>
@@ -401,7 +401,7 @@
                 <td class="py-2 align-top font-bold">Kategori Informasi Publik**</td>
                 <td class="py-2 align-top">:</td>
                 <td class="py-2 align-top">
-                  <div>1. Informasi Pemilu dan Pemilihan <span id="check-kat-1" class="font-bold text-red-800 ml-2">[ ✓ ]</span></div>
+                  <div>1. Informasi Tahapan Pemilu <span id="check-kat-1" class="font-bold text-red-800 ml-2">[ ✓ ]</span></div>
                   <div>2. Informasi KPU sebagai Badan Publik <span id="check-kat-2" class="font-bold text-red-800 ml-2 hidden">[ ✓ ]</span></div>
                 </td>
               </tr>
@@ -759,9 +759,16 @@
       <div class="no-print flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
         <div>
           <h2 class="text-lg font-bold text-slate-900">3. Buku Register Permintaan Informasi Publik</h2>
-          <p class="text-xs text-slate-500">Berdasarkan PKPU 4 Tahun 2025 • Terisi otomatis dari setiap permohonan yang masuk.</p>
+          <p class="text-xs text-slate-500">Berdasarkan PKPU 22/2023 • Terisi otomatis dari setiap permohonan yang masuk.</p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
+          <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-300 rounded-xl px-3 py-1.5">
+            <i data-lucide="calendar" class="w-4 h-4 text-red-800"></i>
+            <label for="filter-tahun-register" class="text-xs font-semibold text-slate-600">Tahun:</label>
+            <select id="filter-tahun-register" onchange="renderBukuRegister()" class="bg-transparent text-xs sm:text-sm font-bold text-slate-900 focus:outline-none cursor-pointer">
+              <option value="2026">2026</option>
+            </select>
+          </div>
           <input type="text" id="search-register" oninput="renderBukuRegister()" placeholder="Cari nama / no register / informasi..." class="rounded-xl border border-slate-300 px-3.5 py-2 text-xs sm:text-sm w-60 focus:ring-2 focus:ring-red-700 focus:outline-none" />
           <button onclick="printRegisterLandscape()" class="bg-red-800 hover:bg-red-900 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold shadow flex items-center gap-1.5">
             <i data-lucide="printer" class="w-4 h-4"></i> Cetak Laporan PDF (Landscape)
@@ -781,8 +788,14 @@
               <div class="font-bold text-xs sm:text-sm text-slate-800">KPU Kabupaten Mamasa</div>
             </div>
           </div>
-            <div class="text-left md:text-right text-[10px] sm:text-xs font-semibold text-slate-700 leading-tight">
-            <div>berdasarkan PKPU 4 Tahun 2025 tentang Pengelolaan dan Pelayanan</div>
+
+          <div class="text-center font-bold text-xs sm:text-sm text-slate-800">
+            <div>Permintaan Informasi Publik melalui PPID</div>
+            <div>KPU Kabupaten Mamasa</div>
+          </div>
+
+          <div class="text-left md:text-right text-[10px] sm:text-xs font-semibold text-slate-700 leading-tight">
+            <div>berdasarkan PKPU 22/2023 tentang Pengelolaan dan Pelayanan</div>
             <div>Informasi Publik di Komisi Pemilihan Umum, Komisi Pemilihan</div>
             <div>Provinsi, dan Komisi Pemilihan Umum Kabupaten/Kota</div>
           </div>
@@ -869,7 +882,7 @@
             <div class="font-bold">Pejabat Pengelola Informasi dan Dokumentasi (PPID)</div>
             <div class="font-bold">KPU Kabupaten Mamasa</div>
             <div class="h-14"></div>
-            <div class="font-bold underline">( Rima Datupuang,S.Sos )</div>
+            <div class="font-bold underline">( ...................................................... )</div>
           </div>
         </div>
       </div>
@@ -969,7 +982,9 @@
           <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
           <input type="password" id="login-pass" placeholder="••••••••" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
         </div>
-        
+        <div class="text-[11px] text-slate-400 bg-slate-50 p-2 rounded-lg">
+          Default: User <b>admin</b> | Pass <b>ppidmamasa2026</b>
+        </div>
         <button onclick="submitLogin()" class="w-full bg-red-800 hover:bg-red-900 text-white font-bold py-2.5 rounded-xl text-sm">
           Masuk Sekarang
         </button>
@@ -1426,12 +1441,45 @@
     // =========================================================================
     // 3. BUKU REGISTER & RENDER TABEL
     // =========================================================================
+    function populateYearFilterOptions() {
+      const select = document.getElementById('filter-tahun-register');
+      if (!select) return;
+
+      const currentSelected = select.value;
+      const defaultYear = String(appState.config.tahun_anggaran || '2026');
+      const yearsSet = new Set([defaultYear, '2024', '2025', '2026', '2027']);
+
+      // Ambil tahun dari seluruh data permohonan yang tercatat
+      appState.permohonan.forEach(item => {
+        if (item.Tgl_Permohonan) {
+          const y = String(item.Tgl_Permohonan).slice(0, 4);
+          if (/^\d{4}$/.test(y)) yearsSet.add(y);
+        }
+        const regMatch = String(item.No_Register || '').match(/(\d{4})$/);
+        if (regMatch) yearsSet.add(regMatch[1]);
+      });
+
+      const sortedYears = Array.from(yearsSet).sort((a, b) => b.localeCompare(a));
+      let html = `<option value="ALL">Semua Tahun</option>`;
+      sortedYears.forEach(y => {
+        html += `<option value="${y}">${y}</option>`;
+      });
+      select.innerHTML = html;
+
+      if (currentSelected && (currentSelected === 'ALL' || yearsSet.has(currentSelected))) {
+        select.value = currentSelected;
+      } else {
+        select.value = defaultYear;
+      }
+    }
+
     function refreshAllViews() {
       document.getElementById('stat-total-permohonan').textContent = appState.permohonan.length;
       document.getElementById('stat-next-reg').textContent = getNextPermohonanNumber();
       document.getElementById('stat-total-keberatan').textContent = appState.keberatan.length;
       document.getElementById('reg-tahun-judul').textContent = appState.config.tahun_anggaran || '2026';
 
+      populateYearFilterOptions();
       renderRecentTable();
       renderBukuRegister();
       renderKeberatanTable();
@@ -1462,15 +1510,30 @@
     function renderBukuRegister() {
       const tbody = document.getElementById('buku-register-tbody');
       const keyword = (document.getElementById('search-register').value || '').toLowerCase();
+      const selectedYear = document.getElementById('filter-tahun-register')?.value || String(appState.config.tahun_anggaran || '2026');
 
-      const filtered = appState.permohonan.filter(item =>
-        String(item.No_Register).toLowerCase().includes(keyword) ||
-        String(item.Nama_Pemohon).toLowerCase().includes(keyword) ||
-        String(item.Rincian_Informasi).toLowerCase().includes(keyword)
-      );
+      // Otomatis perbarui tahun pada judul kop Buku Register sesuai pilihan
+      const judulTahunEl = document.getElementById('reg-tahun-judul');
+      if (judulTahunEl) {
+        judulTahunEl.textContent = selectedYear === 'ALL' ? 'Semua Tahun' : selectedYear;
+      }
+
+      const filtered = appState.permohonan.filter(item => {
+        const itemYearFromDate = item.Tgl_Permohonan ? String(item.Tgl_Permohonan).slice(0, 4) : '';
+        const itemYearFromReg = (String(item.No_Register || '').match(/(\d{4})$/) || [])[1] || '';
+        const itemYear = itemYearFromDate || itemYearFromReg;
+
+        const matchYear = selectedYear === 'ALL' || itemYear === selectedYear;
+        const matchKeyword =
+          String(item.No_Register).toLowerCase().includes(keyword) ||
+          String(item.Nama_Pemohon).toLowerCase().includes(keyword) ||
+          String(item.Rincian_Informasi).toLowerCase().includes(keyword);
+
+        return matchYear && matchKeyword;
+      });
 
       if (filtered.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="26" class="border border-black p-6 text-center text-slate-500">Belum ada data pada Buku Register Permintaan Informasi Publik.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="26" class="border border-black p-6 text-center text-slate-500">Belum ada data pada Buku Register Permintaan Informasi Publik${selectedYear !== 'ALL' ? ' untuk Tahun ' + selectedYear : ''}.</td></tr>`;
         return;
       }
 
