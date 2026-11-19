@@ -51,8 +51,8 @@
       .print-landscape {
         width: 100% !important;
         max-width: 100% !important;
-        padding: 6mm 7mm !important;
-        font-size: 6.5pt !important;
+        padding: 5mm 6mm !important;
+        font-size: 7pt !important;
         overflow: visible !important;
         box-sizing: border-box !important;
       }
@@ -61,26 +61,33 @@
         flex-direction: row !important;
         justify-content: space-between !important;
         align-items: center !important;
-        margin-bottom: 6px !important;
-        padding-bottom: 4px !important;
+        margin-bottom: 8px !important;
+        padding-bottom: 6px !important;
       }
       .print-landscape table {
         width: 100% !important;
         max-width: 100% !important;
         table-layout: fixed !important;
         border-collapse: collapse !important;
-        font-size: 5.5pt !important;
-        line-height: 1.15 !important;
+        font-size: 6.2pt !important;
+        line-height: 1.2 !important;
       }
       .print-landscape th,
       .print-landscape td {
-        padding: 2px 1.5px !important;
+        padding: 3px 2px !important;
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
         white-space: normal !important;
       }
       .print-landscape td.whitespace-nowrap {
         white-space: normal !important;
+      }
+      .print-landscape .ttd-register {
+        display: flex !important;
+        justify-content: flex-end !important;
+        margin-top: 14px !important;
+        padding-right: 12mm !important;
+        font-size: 7.5pt !important;
       }
     }
 
@@ -789,6 +796,33 @@
 
         <!-- Tabel Multi-Header Sesuai Gambar 1 -->
         <table class="w-full border-collapse border border-black text-[10px] leading-tight">
+          <colgroup>
+            <col style="width: 2.0%;" />  <!-- No -->
+            <col style="width: 6.2%;" />  <!-- No. Register -->
+            <col style="width: 4.8%;" />  <!-- Tgl Permohonan -->
+            <col style="width: 5.5%;" />  <!-- Pemohon -->
+            <col style="width: 5.0%;" />  <!-- Alamat -->
+            <col style="width: 5.5%;" />  <!-- Nomor Kontak -->
+            <col style="width: 4.2%;" />  <!-- Pekerjaan -->
+            <col style="width: 7.5%;" />  <!-- Informasi Yang Diminta -->
+            <col style="width: 5.5%;" />  <!-- Tujuan Penggunaan -->
+            <col style="width: 4.3%;" />  <!-- Status Permohonan -->
+            <col style="width: 2.1%;" />  <!-- Ya -->
+            <col style="width: 2.3%;" />  <!-- Tidak -->
+            <col style="width: 4.4%;" />  <!-- Belum Didokumentasikan -->
+            <col style="width: 2.9%;" />  <!-- Softcopy -->
+            <col style="width: 2.9%;" />  <!-- Hardcopy -->
+            <col style="width: 3.6%;" />  <!-- Melihat/Mengetahui -->
+            <col style="width: 3.3%;" />  <!-- Meminta Salinan -->
+            <col style="width: 4.8%;" />  <!-- Keputusan -->
+            <col style="width: 4.2%;" />  <!-- Alasan Penolakan -->
+            <col style="width: 4.6%;" />  <!-- Pemberitahuan Tertulis -->
+            <col style="width: 4.6%;" />  <!-- Pemberian Informasi -->
+            <col style="width: 2.6%;" />  <!-- Biaya -->
+            <col style="width: 2.6%;" />  <!-- Cara -->
+            <col style="width: 4.2%;" />  <!-- Link Form -->
+            <col style="width: 4.4%;" />  <!-- Petugas -->
+          </colgroup>
           <thead>
             <tr class="bg-slate-100 text-center font-bold">
               <th rowspan="3" class="border border-black p-1.5">No</th>
@@ -833,6 +867,17 @@
             <!-- Diisi otomatis via JavaScript -->
           </tbody>
         </table>
+
+        <!-- Tanda Tangan Pengesahan Buku Register (Muncul Rapi saat Cetak F4 Landscape) -->
+        <div class="hidden print:flex ttd-register justify-end mt-6 pr-10 text-xs text-black">
+          <div class="text-center">
+            <div>Mamasa, <span id="reg-tgl-cetak"></span></div>
+            <div class="font-bold">Pejabat Pengelola Informasi dan Dokumentasi (PPID)</div>
+            <div class="font-bold">KPU Kabupaten Mamasa</div>
+            <div class="h-14"></div>
+            <div class="font-bold underline">( ...................................................... )</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1672,6 +1717,11 @@
     }
 
     function printRegisterLandscape() {
+      const regTglCetak = document.getElementById('reg-tgl-cetak');
+      if (regTglCetak) {
+        regTglCetak.textContent = formatTanggalIndo(new Date().toISOString().split('T')[0]);
+      }
+
       const style = document.createElement('style');
       style.id = 'temp-landscape-style';
       // Ukuran kertas F4 (Folio) dalam orientasi Landscape: 330mm x 215mm
@@ -1682,14 +1732,16 @@
             margin: 4mm !important;
           }
           html, body {
-            width: 322mm !important;
-            max-width: 322mm !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
             overflow: visible !important;
           }
           #print-area-register {
-            width: 322mm !important;
-            max-width: 322mm !important;
-            zoom: 0.94;
+            width: 100% !important;
+            max-width: 100% !important;
+            zoom: 1 !important;
           }
         }
       `;
